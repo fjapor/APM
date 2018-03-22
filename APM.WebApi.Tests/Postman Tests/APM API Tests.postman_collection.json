@@ -1,0 +1,196 @@
+{
+	"info": {
+		"name": "APM API Tests",
+		"_postman_id": "916945dc-7345-ec04-7fdf-c59269f4f374",
+		"description": "Postman Tests to APM API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Product (fr Currency)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33cf9b27-a0c0-4440-a2f0-c563a418b010",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"fr currency is EUR\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.currencySymbol).to.eql('€');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:7918/api/fr/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7918",
+					"path": [
+						"api",
+						"fr",
+						"products",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product (Default en-Us Currency)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "386d9ee3-a303-4d2f-8640-e64b7310f7d9",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.currencySymbol).to.eql('$');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:7918/api/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7918",
+					"path": [
+						"api",
+						"products",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product (en-Us Currency)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "386d9ee3-a303-4d2f-8640-e64b7310f7d9",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.currencySymbol).to.eql('$');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:7918/api/en/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7918",
+					"path": [
+						"api",
+						"en",
+						"products",
+						"1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products (Manual en-Us Currency)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "57da9711-786a-4c09-864a-8e3477d8ab6d",
+						"type": "text/javascript",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].currencySymbol).to.eql('$');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:7918/api/en-US/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7918",
+					"path": [
+						"api",
+						"en-US",
+						"products"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

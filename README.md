@@ -4,12 +4,10 @@
 
   - Built with visual Studio 2017 and SQL Server 2017
   - Any issues opening the solution in VS2013 (if it is the only available visual studio), please open the .sln file and change the line (Microsoft Visual Studio Solution File, Format Version 12.00) to (Microsoft Visual Studio Solution File, Format Version 10.00)
-  - Got some security problems attaching the database directly form the connectionstring, was losing too much time handling/researching windows security issues, so i manually attached the mdf file to sql server.
+  - I've got some windows security issues attaching the database directly from the connectionstring, as i was losing too much time handling/researching windows security issues, i decided to manually attach the mdf file to sql server.
 
 # General notes
-- I found strange the behavior of creating a blank product when productid < 0 in Get product endpoint inside the ProductController, by my understanding this affects the single responsability principle so i removed this possibility of using negative ids to get a blank product returned in get.
-- i could add postman tests to test the api routing, however i sticked with the explicit tests written in the requirements
-
+- I found the behavior of creating a blank product when productid < 0 in Get inside the ProductController a bit strange, by my understanding this affects the single responsability principle so i decided to remove the possibility of using negative ids to get a blank product returned in get.
 
 
 # Requirement 1
@@ -24,11 +22,13 @@ http://www.palmmedia.de/blog/2011/8/30/ioc-container-benchmark-performance-compa
 # Requirement 3
 - Decided to use Xunit to tests + FakeitEasy to handle mocks. I could also build some postman tests to validate the web api routing, however i sticked to the scope noted in the history. In order to the Visual Studio IDE find the tests, the solution needs to be built. Also i isolated the tests in a new project.
 
+- There are some postman test scripts in the same project used to test api routing and currency routing mechanism.
+
 # Requirement 4
-- Created a single readonly fiend in Angular showing the new model property
+- Created a single readonly field in Angular showing the new model property
 
 # Requirement 5
-- Never worked with multi-currency applications, so i did some  research and find out about a "Money Pattern" described by Martin-Fowler. By using it we avoid errors of mixing currencies arithmetics and we "could" gain speed and minimize other developers errors. However IDK the impacts and performance issues of this pattern, or code complexity increase and this would require some community research, benchmark and profiling testing.
+- Never worked with multi-currency applications, so i did some  research and find out about a "Money Pattern" described by Martin-Fowler. By using it, we avoid errors of mixing currencies arithmetics and we "could" gain speed and minimize other developers errors. However IDK the impacts and performance issues of this pattern, or code complexity increase and this would require some community research, benchmark and profiling testing.
 
     For reference: 
     https://martinfowler.com/eaaCatalog/money.html
@@ -59,5 +59,3 @@ http://localhost:7918/api/ar/products (returns prices in USD - we ONLY have USD-
   
 for reference about #6:  
 https://support.google.com/webmasters/answer/182192?hl=en&topic=2370587&ctx=topic  
-
-

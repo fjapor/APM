@@ -24,7 +24,6 @@ namespace APM.WebApi.MultiCulture
             if (string.IsNullOrWhiteSpace(lang))
                 return;
 
-            //string lang = actionExecutedContext.Request.RequestUri.Query;//..Values["lang"] ?? _DefaultLanguage;
             if (lang != _DefaultLanguage)
             {
                 try
@@ -38,25 +37,5 @@ namespace APM.WebApi.MultiCulture
                 }
             }
         }
-        //public override void OnActionExecuted(System.Web.Http.Filters.HttpActionExecutedContext actionExecutedContext)
-        //{
-
-        //}
-        //public override void OnActionExecuting(ActionExecutingContext filterContext)
-        //{
-        //    string lang = (string)filterContext.RouteData.Values["lang"] ?? _DefaultLanguage;
-        //    if (lang != _DefaultLanguage)
-        //    {
-        //        try
-        //        {
-        //            Thread.CurrentThread.CurrentCulture =
-        //            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
-        //        }
-        //        catch (Exception)
-        //        {
-        //            throw new NotSupportedException(String.Format("ERROR: Invalid language code '{0}'.", lang));
-        //        }
-        //    }
-        //}
     }
 }

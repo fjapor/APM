@@ -311,7 +311,6 @@ namespace APM.WebApi.Tests
 
         }
 
-
         public void Dispose()
         {
             ProductRepository = null;
