@@ -13,13 +13,6 @@ namespace APM.WebApi.Repositories
     {
         private const string ERR_UNSUPORTED_CONVERSION = "Unsuported currency conversion";
 
-        //In-memory conversion mechanism, it can be ported to a database or whatever persistence needed,
-        //as soon as the use of more currencies starts, this could be placed in a database
-        //as conversion rates changes daily, i've decided to provide a json with the currencies 
-        //I had some security problems that was taking too much time running the connectionString with attached file,
-        //So i decided to manually attach the mdf to my sql server and updated the connectionstring in web.config file.
-
-
         private Dictionary<KeyValuePair<string, string>, decimal> _conversions = null;
         private Dictionary<KeyValuePair<string, string>, decimal> Conversions
         {
