@@ -42,23 +42,23 @@
             </div>
         </div>
     </nav>
-    <div class="container pull-right">
+    <div ng-if="vm.isLoggedIn" class="container pull-right">
         <div ng-if="vm.isLoggedIn" ng-include="'app/products/productEditView.html'"></div>
         <div ng-if="vm.isLoggedIn" ng-include="'app/products/productListView.html'"></div>
     </div>
-        <!-- Library Scripts -->
-        <script src="scripts/angular.js"></script>
-        <script src="Scripts/angular-resource.js"></script>
-        <!-- Application Script -->
-        <script src="app/app.js"></script>
-        <!-- Services -->
-        <script src="common/common.services.js"></script>
-        <script src="common/productResource.js"></script>
-        <script src="common/userAccount.js"></script>
-        <!-- Product Controllers -->
-        <script src="app/products/productListCtrl.js"></script>
-        <script src="app/products/productEditCtrl.js"></script>
-        <script src="app/mainCtrl.js"></script>
+    <!-- Library Scripts -->
+    <script src="scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <!-- Application Script -->
+    <script src="app/app.js"></script>
+    <!-- Services -->
+    <script src="common/common.services.js"></script>
+    <script src="common/productResource.js"></script>
+    <script src="common/userAccount.js"></script>
+    <!-- Product Controllers -->
+    <script src="app/products/productListCtrl.js"></script>
+    <script src="app/products/productEditCtrl.js"></script>
+    <script src="app/mainCtrl.js"></script>
 </body>
 
 </html>

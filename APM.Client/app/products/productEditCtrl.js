@@ -3,32 +3,43 @@
 
     angular
         .module("productManagement")
-        .controller("ProductEditCtrl",
-                     ProductEditCtrl);
+        .controller("ProductEditCtrl", 
+        ["$rootScope","productResource", ProductEditCtrl]);
 
-    function ProductEditCtrl(productResource) {
+    function ProductEditCtrl($rootScope, productResource) {
         var vm = this;
+        vm.lang = 'en';
         vm.product = {};
         vm.message = '';
 
-        productResource.get({ id: 5 },
-            function (data) {
-                vm.product = data;
-                vm.originalProduct = angular.copy(data);
-            },
-            function (response) {
-                vm.message = response.statusText + "\r\n";
-                if (response.data.exceptionMessage) {
-                    vm.message += response.data.exceptionMessage;
-                }
-            });
+        vm.change = function () {
+            productResource.locale = vm.lang;
 
-        if (vm.product && vm.product.productId) {
-            vm.title = "Edit: " + vm.product.productName;
+            productResource.build().get({ id: 5 },
+                function (data) {
+                    vm.product = data;
+                    vm.originalProduct = angular.copy(data);
+                },
+                function (response) {
+                    vm.message = response.statusText + "\r\n";
+                    if (response.data.exceptionMessage) {
+                        vm.message += response.data.exceptionMessage;
+                    }
+                });
+
+            if (vm.product && vm.product.productId) {
+                vm.title = "Edit: " + vm.product.productName;
+            }
+            else {
+                vm.title = "New Product";
+            }
+
+            productResource.build().query(function (data) {
+                $rootScope.$broadcast('fill-product', data);
+            });
         }
-        else {
-            vm.title = "New Product";
-        }
+
+        vm.change();
 
         vm.submit = function () {
             vm.message = '';
