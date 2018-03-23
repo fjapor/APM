@@ -7,20 +7,17 @@
   - I've got some windows security issues attaching the database directly from the connectionstring, as i was losing too much time handling/researching windows security issues, i decided to manually attach the mdf file to sql server.
 
 # General notes
-- I found the behavior of creating a blank product when productid < 0 in Get inside the ProductController a bit strange, by my understanding this affects the single responsability principle so i decided to remove the possibility of using negative ids to get a blank product returned in get.
+- I found the behavior of creating a blank product when productid < 0 in Get inside the ProductController a bit unusual, so i decided to remove the possibility of using negative ids to get a blank product returned in get (Considering this is not the default behavior of the company/code).
 
 
 # Requirement 1
 - Handled with Regex pattern in Angular
  
 # Requirement 2
-- Decided to use Autofac as IoC container, is not the most performatic one, but it is fast and easy to setup.
+- Decided to use Autofac as IoC container.
 
-For Reference:
-http://www.palmmedia.de/blog/2011/8/30/ioc-container-benchmark-performance-comparison
-    
 # Requirement 3
-- Decided to use Xunit to tests + FakeitEasy to handle mocks. I could also build some postman tests to validate the web api routing, however i sticked to the scope noted in the history. In order to the Visual Studio IDE find the tests, the solution needs to be built. Also i isolated the tests in a new project.
+- Decided to use Xunit to tests + FakeitEasy to handle mocks. In order to the Visual Studio IDE find the tests, the solution needs to be built. Also i isolated the tests in a new project.
 
 - There are some postman test scripts in the same project used to test api routing and currency routing mechanism.
 

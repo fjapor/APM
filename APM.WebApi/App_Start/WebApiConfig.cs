@@ -18,9 +18,6 @@ namespace APM.WebApi
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             config.EnableCors();
-            //var enableCorsAttribute = new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*");
-            //config.EnableCors(enableCorsAttribute);
-
 
             config.Routes.MapHttpRoute(
                   name: "DefaultApiLocalized",
@@ -34,15 +31,6 @@ namespace APM.WebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
-            //routes.MapRoute(
-            //    name: "Default",
-            //    url: "{lang}/{controller}/{action}/{id}",
-            //    constraints: new { lang = @"(\w{2})|(\w{2}-\w{2})" }, //en or en-US, pt or pt-BR
-            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-
-            //);
-
 
         }
     }

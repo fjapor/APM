@@ -9,6 +9,10 @@ using System.Web.Http.Controllers;
 
 namespace APM.WebApi.MultiCulture
 {
+    /// <summary>
+    /// Attribute created in order to check what language/culture the API wish to request. 
+    /// It is used to handle multi-currencies, but can be extended to handle multi-languages in the future as needed.
+    /// </summary>
     public class LocalizationAttribute : System.Web.Http.Filters.ActionFilterAttribute
     {
         private string _DefaultLanguage = "en";
