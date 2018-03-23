@@ -9,13 +9,15 @@
 
     function MainCtrl(userAccount) {
         var vm = this;
+
         vm.isLoggedIn = false;
         vm.message = '';
         vm.userData = {
             userName: '',
             email: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            lang: 'en'
         };
 
         vm.registerUser = function () {

@@ -2,8 +2,8 @@
 
     "use strict";
 
-    function productResource($resource, appSettings, lang) {
-        return $resource(appSettings.serverPath + "/api/" + lang + "/products/:id", null,
+    function productResource($resource, appSettings) {
+        return $resource(appSettings.serverPath + "/api/" + appSettings.locale + "/products/:id", null,
             {
                 'update': { method: 'PUT'}
             });
