@@ -4,7 +4,7 @@
 
   - Built with visual Studio 2017 and SQL Server 2017 (i don't have vs 2013, if vs2013 is a strict requirement, i can change it, please let me know)
   - Any issues opening the solution in VS2013 (if it is the only available visual studio), please open the .sln file and change the line (Microsoft Visual Studio Solution File, Format Version 12.00) to (Microsoft Visual Studio Solution File, Format Version 10.00)
-  - I've got some windows security issues attaching the database directly from the connectionstring, as i was losing too much time handling/researching windows security issues, i decided to manually attach the mdf file to sql server.
+  - I've got some windows security issues attaching the database directly from the connectionstring, as i was losing too much time handling/researching windows security issues, i decided to manually attach the mdf file to sql server and changed the connectionstring, but the original one is commented in web.config.
 
 # General notes
 - I found the behavior of creating a blank product when productid < 0 in Get inside the ProductController a bit unusual, so i decided to remove the possibility of using negative ids to get a blank product returned in get (Considering this is not the default behavior of the company/code).
